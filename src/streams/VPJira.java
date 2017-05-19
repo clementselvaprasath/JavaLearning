@@ -3,17 +3,18 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 public class VPJira {
 
-	static List<String> persons;
+	//static List<String> persons;
 	public static void main(String[] args) {
-		persons = new ArrayList<String>();
+		List<String> persons = new ArrayList<String>();
 		persons.add("vjonavada");
 		persons.add("vjonavada1");
 		persons.add("vjonavada2");
-		persons.add("cberkmans");
+		persons.add("cberk7mans");
 		persons.add("cberkmans1");
 		persons.add("cberkmans2");
 		persons.add("cberkman3s");
@@ -28,13 +29,21 @@ public class VPJira {
 		jList.add(new JiraTicket("ECI-14", "vjonavada", "rbhat", "None", "Pending Verification", "10 day(s) ago", "Pending Info"));
 		jList.add(new JiraTicket("ECI-15", "vjonavada", "rbhat", "Pre-Certified", "In Progress", "26 day(s) ago", "Pending Info"));
 		
-		jList.stream().filter(p -> persons.contains(p.getCreatedBy())).forEach(p -> System.out.println(p.getTicketId()));
+		// 1. Directly checking
+		//jList.stream().filter(p -> persons.contains(p.getCreatedBy())).forEach(p -> System.out.println(p.getTicketId()));
+		
+		// 2. Method check
+		//jList.stream().filter(noAdminControllerPaths(persons)).forEach(p -> System.out.println(p.getTicketId()));
+		
+		// 3. Variable check
+		Predicate<JiraTicket> reporterbyVPCheck = p -> persons.contains(p.getCreatedBy());
+		jList.stream().filter(reporterbyVPCheck).forEach(p -> System.out.println(p.getTicketId()));
 		
 	}
-/*    @SuppressWarnings("unchecked")
-    private static java.util.function.Predicate<String> noAdminControllerPaths(JiraTicket j) {
-        return new Stringpersons.contains(j.getCreatedBy());
-    }*/
+    @SuppressWarnings("unchecked")
+    private static java.util.function.Predicate<JiraTicket> noAdminControllerPaths(List<String> persons) {
+        return j -> persons.contains(j.getCreatedBy());
+    }
 
 }
 

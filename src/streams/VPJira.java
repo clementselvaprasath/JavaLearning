@@ -11,7 +11,7 @@ public class VPJira {
 	//static List<String> persons;
 	public static void main(String[] args) {
 		List<String> persons = new ArrayList<String>();
-		persons.add("vjonavada");
+	/*	persons.add("vjonavada");
 		persons.add("vjonavada1");
 		persons.add("vjonavada2");
 		persons.add("cberk7mans");
@@ -19,7 +19,7 @@ public class VPJira {
 		persons.add("cberkmans2");
 		persons.add("cberkman3s");
 		persons.add("lpanneerselvam");
-		persons.add("lpanneerselvam3");
+		persons.add("lpanneerselvam3");*/
 		
 		List<JiraTicket> jList = new ArrayList<JiraTicket>();
 		jList.add(new JiraTicket("ECI-10", "cberkmans", "rbhat", "Pre-Certified", "Pending Info", "20 day(s) ago", "Pending Info"));
@@ -37,7 +37,7 @@ public class VPJira {
 		
 		// 3. Variable check
 		Predicate<JiraTicket> reporterbyVPCheck = p -> persons.contains(p.getCreatedBy());
-		jList.stream().filter(reporterbyVPCheck).forEach(p -> System.out.println(p.getTicketId()));
+		jList.stream().filter(reporterbyVPCheck).map(p ->p.getTicketId()).forEach(System.out::println);
 		
 	}
     @SuppressWarnings("unchecked")

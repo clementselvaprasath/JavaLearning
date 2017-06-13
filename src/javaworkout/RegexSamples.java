@@ -102,12 +102,12 @@ public class RegexSamples {
 
 
 		//String line2 = "pre-certify   <mailto:git@github.paypal.com/Customer-Support-R/custnotifnenrichserv.git> testcase-grouping";
-		String line5 = "dr-run <https://github.paypal.com/QualityInfrastructure/jaws-parent.git> develop clean run build";	
+/*		String line5 = "dr-run <https://github.paypal.com/QualityInfrastructure/jaws-parent.git> develop clean run build";	
 		String pattern5 = "^dr-run(\\s+)(<\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]>)(\\s+)([a-zA-Z0-9-_]+)(.*)$";
 		if(line5.matches(pattern5)) {
 			System.out.println("Found");
 		}else
-			System.out.println("NOT Found");
+			System.out.println("NOT Found");*/
 
 
 		/*		String line6 = "certify-jira <https://github.paypal.com/Customers-R/partnerinternalserv> develop ECI-251";
@@ -164,6 +164,16 @@ public class RegexSamples {
 		System.out.print("---");
 		System.out.print(String.format("%1$-" + 26 + "s", "Auto-Certified"));
 		System.out.print("---");*/
+		
+		
+		
+		
+		String line6 = "apptype: r";
+		String pattern6 = "^apptype(\\s*):(\\s*)[-a-zA-Z0-9+&@#/%?=~_|!:,.;]+$";
+		if(line6.matches(pattern6)) {
+			System.out.println("Found");
+		}else
+			System.out.println("NOT Found");
 	}
 
 

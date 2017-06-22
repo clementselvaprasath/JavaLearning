@@ -1,6 +1,7 @@
 package javaworkout;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class ArraySample {
 
@@ -15,10 +16,18 @@ public class ArraySample {
 			System.out.println("");
 		}*/
 		
-		//Arrays.stream(intArray).forEach(System.out::println);
+		// NESTED for
+		Arrays.stream(intArray)
+		.forEach(e -> {
+			IntStream.range(0, e)
+			.forEach(i -> {System.out.print("*");});
+			System.out.println("");
+		});
 		
 		
-		String str1 = "abcdeefghhe";
+		
+		//===================================================================
+/*		String str1 = "abcdeefghhe";
 		char[] str1Source = str1.toCharArray();
 		char[] str1Array = new char[str1.length()];
 		int temp = 1;
@@ -37,6 +46,7 @@ public class ArraySample {
 				str1Array[temp++]=str1Source[i];
 		}
 		
-		System.out.print(str1Array);
+		System.out.print(str1Array);*/
+		//===================================================================		
 	}
 }

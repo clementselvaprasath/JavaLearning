@@ -14,6 +14,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
@@ -49,6 +50,16 @@ public class One {
 	}
 	
 	public static void main(String[] args) {
+		//Nested For loop
+		int [] intArray = {1,7,8,9};
+		Arrays.stream(intArray)
+		.forEach(e -> {
+			IntStream.range(0, e)
+			.forEach(i -> {System.out.print("*");});
+			System.out.println("");
+		});
+		
+		
 /*		List<String> myList =
 				Arrays.asList("a1", "a2", "b1", "c2", "c1");
 

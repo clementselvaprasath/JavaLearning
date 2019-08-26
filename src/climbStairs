@@ -1,0 +1,26 @@
+class Solution {
+    public int climbStairs(int n) {
+        Map<Integer, Integer> store = new HashMap<Integer, Integer>();
+        int mainret = helper(store, n);
+        System.out.println("store   - "+ store);
+        return mainret;
+    }
+    
+    private int helper(Map<Integer, Integer> store, int n){
+        if(store.containsKey(n)){
+            System.out.println("I am store - "+n+" value - "+store.get(n));
+            return store.get(n);
+        }
+        if(n<=1){
+            return 1;
+        }else {
+            System.out.println("I am entering - "+ n);
+            int help1 = helper(store, n-1);
+            System.out.println("help1 - "+ help1);
+            int help2 = helper(store, n-2);
+            System.out.println("help2 - "+ help2);
+            store.put(n, help1+help2);
+            return help1 + help2;
+        }
+    }
+}
